@@ -18,16 +18,19 @@ def modularReduction(m, a):
     return r
 
 while True:
-    m = input("enter an integer:")
+    print("Please enter a modulus: ")
+    m = input()
     if integerCheck(m) == False:
         continue
-    elif m == 0:
-        print("the modulus must be great than 0.")
+    elif int(m) == 0:
+        print("the modulus must be greater than 0.")
+        continue
     else:
         break
 
 while True:
-    a = input("enter an integer:")
+    print("Please enter a number to reduce: ")
+    a = input()
     if integerCheck(a) == False:
         continue
     else:

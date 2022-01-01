@@ -1,3 +1,5 @@
+#this program takes one input and determines if it can be made into an integer.
+
 def integerCheck(integer):
     try:
         integer = (int(integer))
