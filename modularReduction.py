@@ -5,7 +5,6 @@ def integerCheck(integer):
         integer = (int(integer))
     except ValueError:
         print("Your input was invalid.")
-        print("1")
         return False
     else:
         return True
