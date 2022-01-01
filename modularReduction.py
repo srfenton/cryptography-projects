@@ -22,13 +22,12 @@ while True:
     m = input("enter an integer:")
     if integerCheck(m) == False:
         continue
-    elif m == 0
+    elif m == 0:
         print("the modulus must be great than 0.")
     else:
         break
 
 while True:
-    while True:
     a = input("enter an integer:")
     if integerCheck(a) == False:
         continue
