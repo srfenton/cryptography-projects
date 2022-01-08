@@ -9,20 +9,23 @@ def integerCheck(integer):
     else:
         return True
 
-def modularReduction(m, a):
+def modularReduction(modulus, a):
     a = int(a)
-    m = int(m)
-    q = a // m
-    r = a - q * m
+    modulus = int(modulus)
+    if a > 0:
+        r = a % modulus
+    elif a < 0:
+        pass
+
 
     return r
 
 while True:
     print("Please enter a modulus: ")
-    m = input()
-    if integerCheck(m) == False:
+    modulus = input()
+    if integerCheck(modulus) == False:
         continue
-    elif int(m) == 0:
+    elif int(modulus) <= 0:
         print("the modulus must be greater than 0.")
         continue
     else:
@@ -36,6 +39,6 @@ while True:
     else:
         break
 
-print("\n", modularReduction(m, a), " mod ", m, "\n")
+print("\n", modularReduction(modulus, a), " mod ", modulus, "\n")
 
 sys.exit()
