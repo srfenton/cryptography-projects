@@ -1,6 +1,6 @@
 import sys
 
-def integerCheck(integer):              #takes one input, converts it to an integer and makes sure it's not empty
+def integerCheck(integer):                          #takes one input, converts it to an integer and makes sure it's not empty
     try:
         integer = (int(integer))
     except ValueError:
@@ -30,28 +30,34 @@ def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and finds
 
     return largerNumber
 
-
-
-
 while True:
-    print("Please enter a number: ")
-    firstNumber = input()
-    if integerCheck(firstNumber) == False:
-        continue
-    elif int(firstNumber) == 0:
-        print("the number must be greater than 0.")
-        continue
-    else:
-        break
-
-while True:
-    print("Please enter another number: ")
-    secondNumber = input()
-    if integerCheck(secondNumber) == False:
-        continue
-    else:
-        break
-
+    while True:
+        firstNumber = input("Please enter a number: ")
+        if integerCheck(firstNumber) == False:
+            continue
+        elif int(firstNumber) == 0:
+            print("the number must be greater than 0.")
+            continue
+        else:
+            break
+    while True:
+        secondNumber = input("Please enter another number: ")
+        if integerCheck(secondNumber) == False:
+            continue
+        elif int(firstNumber) == 0:
+            print("the number must not be 0.")
+            continue
+        else:
+            break
+    while True:
+        continuance = input("do you want to do another calculation? \n enter yes or no \n ")
+        if continuance.lower() == "yes":
+            break
+        elif continuance.lower() == "no":
+            print("\n thank you \n")
+            sys.exit()
+        else:
+            print("your input was not valid")
 print(euclideanAlgorithm(firstNumber, secondNumber), "is the GCD of ", firstNumber," and ", secondNumber)
 
 
