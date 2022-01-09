@@ -49,6 +49,7 @@ while True:
             continue
         else:
             break
+    print(euclideanAlgorithm(firstNumber, secondNumber), "is the GCD of ", firstNumber," and ", secondNumber)
     while True:
         continuance = input("do you want to do another calculation? \n enter yes or no \n ")
         if continuance.lower() == "yes":
@@ -58,7 +59,7 @@ while True:
             sys.exit()
         else:
             print("your input was not valid")
-print(euclideanAlgorithm(firstNumber, secondNumber), "is the GCD of ", firstNumber," and ", secondNumber)
+
 
 
 sys.exit()
