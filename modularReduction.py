@@ -1,6 +1,6 @@
 import sys
 
-def integerCheck(integer):
+def integerCheck(integer):              #checks for a value error to make sure the input is neither empty or a string
     try:
         integer = (int(integer))
     except ValueError:
@@ -12,33 +12,37 @@ def integerCheck(integer):
 def modularReduction(modulus, a):
     a = int(a)
     modulus = int(modulus)
-    if a > 0:
-        r = a % modulus
-    elif a < 0:
-        pass
-
+    r = a % modulus
 
     return r
 
 while True:
-    print("Please enter a modulus: ")
-    modulus = input()
-    if integerCheck(modulus) == False:
-        continue
-    elif int(modulus) <= 0:
-        print("the modulus must be greater than 0.")
-        continue
-    else:
-        break
+    while True:                     #this loop takes an input for the modulus and makes sure it is valid
+        modulus = input("Please enter a modulus: ")
+        if integerCheck(modulus) == False:
+            continue
+        elif int(modulus) <= 0:
+            print("the modulus must be greater than 0.")
+            continue
+        else:
+            break
 
-while True:
-    print("Please enter a number to reduce: ")
-    a = input()
-    if integerCheck(a) == False:
-        continue
-    else:
-        break
+    while True:                     #this loop takes an input for the a value or number to reduce and makes sure it is valid
+        a = input("Please enter a number to reduce: ")
+        if integerCheck(a) == False:
+            continue
+        else:
+            break
+    print("\n", modularReduction(modulus, a), " mod ", modulus, "\n")
 
-print("\n", modularReduction(modulus, a), " mod ", modulus, "\n")
+    while True:
+        continuance = input("do you want to do another calculation? \n enter yes or no \n ")
+        if continuance.lower() == "yes":
+            break
+        elif continuance.lower() == "no":
+            print("\n thank you \n")
+            sys.exit()
+        else:
+            print("your input was not valid")
 
 sys.exit()
