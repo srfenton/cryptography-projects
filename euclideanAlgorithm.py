@@ -32,7 +32,7 @@ def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and finds
 
 while True:
     while True:
-        firstNumber = input("Please enter a number: ")
+        firstNumber = input("Please enter a number: ").strip()
         if integerCheck(firstNumber) == False:
             continue
         elif int(firstNumber) == 0:
@@ -41,7 +41,7 @@ while True:
         else:
             break
     while True:
-        secondNumber = input("Please enter another number: ")
+        secondNumber = input("Please enter another number: ").strip()
         if integerCheck(secondNumber) == False:
             continue
         elif int(firstNumber) == 0:
@@ -52,10 +52,10 @@ while True:
     print(euclideanAlgorithm(firstNumber, secondNumber), "is the GCD of ", firstNumber," and ", secondNumber)
     while True:
         continuance = input("do you want to do another calculation? \n enter yes or no \n ")
-        if continuance.lower() == "yes":
+        if continuance.lower().strip() == "yes":
             break
-        elif continuance.lower() == "no":
-            print("\n thank you \n")
+        elif continuance.lower().strip() == "no":
+            print("thank you")
             sys.exit()
         else:
             print("your input was not valid")
