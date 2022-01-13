@@ -10,7 +10,7 @@ def integerCheck(integer):                          #takes one input, converts i
         return True
 
 
-def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and finds the greatest common divisor
+def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and returns the GCD.
     remainder = None
     firstNumber = int(firstNumber)
     secondNumber = int(secondNumber)
@@ -18,7 +18,6 @@ def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and finds
     if firstNumber > secondNumber:
         smallerNumber = secondNumber
         largerNumber = firstNumber
-
     else:
         smallerNumber = firstNumber
         largerNumber = secondNumber
