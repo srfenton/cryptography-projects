@@ -18,7 +18,7 @@ def modularReduction(modulus, a):
 
 while True:
     while True:                     #this loop takes an input for the modulus and makes sure it is valid
-        modulus = input("Please enter a modulus: ")
+        modulus = input("Please enter a modulus: ").strip()
         if integerCheck(modulus) == False:
             continue
         elif int(modulus) <= 0:
@@ -28,7 +28,7 @@ while True:
             break
 
     while True:                     #this loop takes an input for the a value or number to reduce and makes sure it is valid
-        a = input("Please enter a number to reduce: ")
+        a = input("Please enter a number to reduce: ").strip()
         if integerCheck(a) == False:
             continue
         else:
@@ -37,9 +37,9 @@ while True:
 
     while True:
         continuance = input("do you want to do another calculation? \n enter yes or no \n ")
-        if continuance.lower() == "yes":
+        if continuance.lower().strip() == "yes":
             break
-        elif continuance.lower() == "no":
+        elif continuance.lower().strip() == "no":
             print("\n thank you \n")
             sys.exit()
         else:
