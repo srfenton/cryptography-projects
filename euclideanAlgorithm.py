@@ -29,13 +29,15 @@ def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and retur
 
     return largerNumber
 
+print("This program takes two numbers and returns their GCD.")
+
 while True:
     while True:
         firstNumber = input("Please enter a number: ").strip()
         if integerCheck(firstNumber) == False:
             continue
         elif int(firstNumber) == 0:
-            print("the number must be greater than 0.")
+            print("the number must not be 0.")
             continue
         else:
             break
@@ -43,7 +45,7 @@ while True:
         secondNumber = input("Please enter another number: ").strip()
         if integerCheck(secondNumber) == False:
             continue
-        elif int(firstNumber) == 0:
+        elif int(secondNumber) == 0:
             print("the number must not be 0.")
             continue
         else:

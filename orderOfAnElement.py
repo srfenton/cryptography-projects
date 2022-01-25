@@ -46,6 +46,8 @@ def continuance():
             else:
                 print("your input was not valid")
 
+print("This program determines the order of a given element in a given multiplicative group.")
+
 while True:
     while True:
         group = input("enter a group: ")
@@ -56,16 +58,16 @@ while True:
             continue
         else:
             break
-    cyclicGroup = []
+    multiplicativeGroup = []
     for eachElement in range (1, int(group)):
         if euclideanAlgorithm(int(eachElement), group) == 1:
-            cyclicGroup.append(int(eachElement))
+            multiplicativeGroup.append(int(eachElement))
     while True:
         element = input("enter an element of that group: ")
         if integerCheck(element) == False:
             continue
         element = int(element)
-        if element not in cyclicGroup:
+        if element not in multiplicativeGroup:
             print("Sorry. The element ", element, " is not in the finite group ", group)
             print(cyclicGroup, "are the elements in the finite group ", group)
             continue

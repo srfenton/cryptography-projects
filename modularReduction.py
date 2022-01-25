@@ -16,6 +16,8 @@ def modularReduction(modulus, a):
 
     return r
 
+print("This program performs a modular reduction.")
+
 while True:
     while True:                     #this loop takes an input for the modulus and makes sure it is valid
         modulus = input("Please enter a modulus: ").strip()
