@@ -16,7 +16,7 @@ def modularReduction(modulus, a):
 
     return r
 
-print("This program performs a modular reduction.")
+print("This program performs a modular reduction on a given a value (number to reduce) and a given modulus.")
 
 while True:
     while True:                     #this loop takes an input for the modulus and makes sure it is valid
