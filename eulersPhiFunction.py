@@ -46,42 +46,15 @@ def continuance():
             else:
                 print("your input was not valid")
 
-print("This program determines the order of a given element in a given multiplicative group.")
+
+def isPrime(number):
+    for x in range(2, int(number/2) +1):
+        if number % x == 0:
+            return False
+    return True
 
 while True:
-    while True:
-        group = input("enter a group: ")
-        if integerCheck(group) == False:
-            continue
-        elif int(group) == 0:
-            print("the group must not be 0.")
-            continue
-        else:
-            break
-    multiplicativeGroup = []
-    for eachElement in range (1, int(group)):
-        if euclideanAlgorithm(int(eachElement), group) == 1:
-            multiplicativeGroup.append(int(eachElement))
-    while True:
-        element = input("enter an element of that group: ")
-        if integerCheck(element) == False:
-            continue
-        element = int(element)
-        if element not in multiplicativeGroup:
-            print("Sorry. The element ", element, " is not in the finite group ", group)
-            print(multiplicativeGroup, "are the elements in the finite group ", group)
-            continue
-        else:
-            break
-    remainder = None
-    exponent = 0
-    while remainder != 1:
-        exponent += 1
-        remainder = modularReduction(group, int(element) ** exponent)
-    print("the order of ", element, " in the group ", group," is ", exponent)
-
+    prime = int(input("please input a prime number: "))
+    print(isPrime(prime))
     continuance()
 
-
-
-sys.exit()
