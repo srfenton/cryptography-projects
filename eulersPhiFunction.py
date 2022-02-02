@@ -20,15 +20,16 @@ def continuance():
             else:
                 print("your input was not valid")
 
-
 def isPrime(number):
     for x in range(2, int(number/2) +1):
         if number % x == 0:
             return False
     return True
 
-
-
+def nextFactor(number):
+        for x in range(number-1, 1, -1):
+            if number % x == 0:
+                return x
 
 class Node:
 
@@ -36,16 +37,22 @@ class Node:
         self.left = left
         self.right = right
 
-    def nextFactor(self, number):
-        for x in range(number-1, 1, -1):
-            if number % x == 0:
-                return x
-
-
 
 while True:
     n = int(input("Please enter a number: "))
     primeFactors = []
+
+    while True:
+        if nextFactor(n) is None:
+            break
+        branch = Node(nextFactor(n) , n / nextFactor(n))
+        if isPrime(branch.left) == True:
+            primeFactors.append(branch.left)
+        if isPrime(int(branch.right)) == True:
+            primeFactors.append(int(branch.right))
+        n = nextFactor(n)
+
+    print(primeFactors)
 
     continuance()
 
