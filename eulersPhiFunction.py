@@ -9,32 +9,6 @@ def integerCheck(integer):                          #takes an input and returns 
     else:
         return True
 
-def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and returns the GCD
-    remainder = None
-    firstNumber = int(firstNumber)
-    secondNumber = int(secondNumber)
-
-    if firstNumber > secondNumber:
-        smallerNumber = secondNumber
-        largerNumber = firstNumber
-    else:
-        smallerNumber = firstNumber
-        largerNumber = secondNumber
-
-    while remainder != 0:
-        remainder = largerNumber % smallerNumber
-        largerNumber = smallerNumber
-        smallerNumber = remainder
-
-    return largerNumber
-
-def modularReduction(modulus, a):                   #takes two inputs and returns the remainder of the modular arithemtic operation between them
-    a = int(a)
-    modulus = int(modulus)
-    r = a % modulus
-
-    return r
-
 def continuance():
     while True:
             continuance = input("do you want to do another calculation? \n enter yes or no \n ")
@@ -53,8 +27,26 @@ def isPrime(number):
             return False
     return True
 
+
+
+
+class Node:
+
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
+
+    def nextFactor(self, number):
+        for x in range(number-1, 1, -1):
+            if number % x == 0:
+                return x
+
+
+
 while True:
-    prime = int(input("please input a prime number: "))
-    print(isPrime(prime))
+    n = int(input("Please enter a number: "))
+    primeFactors = []
+
     continuance()
+
 
