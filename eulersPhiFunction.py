@@ -1,4 +1,5 @@
 import sys
+from turtle import left
 
 def canThisBeAnInteger(integer):                          #takes an input and returns false if its empty or cannot be converted to an integer
     try:
@@ -20,7 +21,7 @@ def continuance():
             else:
                 print("your input was not valid")
 
-def isthisPrime(number):
+def isThisPrime(number):
     for x in range(2, int(number/2) +1):
         if number % x == 0:
             return False
@@ -31,6 +32,16 @@ def nextFactor(number):
             if number % x == 0:
                 return x
 
+def countExponents(primeFactors):
+    primeFactorsDict = {}
+
+    for x in primeFactors:
+        if x in primeFactorsDict:
+            primeFactorsDict[x] += 1
+        else:
+            primeFactorsDict[x] = 1
+   
+    return primeFactorsDict
 
 class Node:
 
@@ -41,23 +52,26 @@ class Node:
 
 while True:
     n = int(input("Please enter a number: "))
-    primeFactors = []
-    primeFactorsDict = {}
+    primeFactorsList = []
+
 
     while True:
         if nextFactor(n) is None:
             break
         branch = Node(nextFactor(n) , n / nextFactor(n))
+
         if isThisPrime(branch.left) == True:
-            primeFactors.append(branch.left)
+            primeFactorsList.append(branch.left)
+
         if isThisPrime(int(branch.right)) == True:
-            primeFactors.append(int(branch.right))
+            primeFactorsList.append(int(branch.right))
+
         n = nextFactor(n)
 
-    print(primeFactors)
+    print(primeFactorsList)
 
-
-
+    print(countExponents(primeFactorsList))
+    
     continuance()
 
 
