@@ -69,9 +69,18 @@ while True:
         n = nextFactor(n)
 
     print(primeFactorsList)
-
+    primeFactorsDict = countExponents(primeFactorsList)
     print(countExponents(primeFactorsList))
+
+    primeFactorsEvaluatedList = []
+
+    for x in primeFactorsDict.keys():
+        product = x ** primeFactorsDict.get(x) - x ** (primeFactorsDict.get(x) - 1)
+        primeFactorsEvaluatedList.append(product)
+        print(primeFactorsEvaluatedList)
+        
+    #fill in with product of list
+
     
+ 
     continuance()
-
-
