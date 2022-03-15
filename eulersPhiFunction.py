@@ -77,10 +77,14 @@ while True:
     for x in primeFactorsDict.keys():
         product = x ** primeFactorsDict.get(x) - x ** (primeFactorsDict.get(x) - 1)
         primeFactorsEvaluatedList.append(product)
-        print(primeFactorsEvaluatedList)
-        
-    #fill in with product of list
-
-    
+    print(primeFactorsEvaluatedList)
+    for i in range(len(primeFactorsEvaluatedList)):
+        print(i)
+        if i == 0:
+            phi = primeFactorsEvaluatedList[i]
+        else:
+            phi = phi * primeFactorsEvaluatedList[i]
+            
+    print(phi)
  
     continuance()
