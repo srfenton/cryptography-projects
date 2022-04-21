@@ -27,23 +27,22 @@ def isThisPrime(number):
             return False
     return True
 
-def nextFactor(number):
+def nextFactor(number):                                   #this function takes an integer and returns the next factor reducable 
         for x in range(number-1, 1, -1):
             if number % x == 0:
                 return x
 
-def countExponents(primeFactors):
+def countExponents(primeFactorsList):                     #counts exponents by taking a list of prime factors as an input and returns a dictionary with distinct prime factors as keys and their degree as values
     primeFactorsDict = {}
 
-    for x in primeFactors:
+    for x in primeFactorsList:
         if x in primeFactorsDict:
             primeFactorsDict[x] += 1
         else:
             primeFactorsDict[x] = 1
-   
     return primeFactorsDict
 
-class Node:
+class factorTree:                                          #factorTree class is used to create branch objects that identify prime factors on the right and reducable factors on the left
 
     def __init__(self, left, right):
         self.left = left
@@ -58,28 +57,26 @@ while True:
     while True:
         if nextFactor(n) is None:
             break
-        branch = Node(nextFactor(n) , n / nextFactor(n))
+        branch = factorTree(nextFactor(n) , int(n / nextFactor(n)))
 
         if isThisPrime(branch.left) == True:
-            primeFactorsList.append(branch.left)
+            primeFactorsList.append(int(branch.left))
+            print("prime factor added from left ", branch.left)
 
         if isThisPrime(int(branch.right)) == True:
             primeFactorsList.append(int(branch.right))
+            print("prime factor added from right ", branch.right)
 
         n = nextFactor(n)
 
-    print(primeFactorsList)
     primeFactorsDict = countExponents(primeFactorsList)
-    print(countExponents(primeFactorsList))
 
     primeFactorsEvaluatedList = []
 
     for x in primeFactorsDict.keys():
         product = x ** primeFactorsDict.get(x) - x ** (primeFactorsDict.get(x) - 1)
         primeFactorsEvaluatedList.append(product)
-    print(primeFactorsEvaluatedList)
     for i in range(len(primeFactorsEvaluatedList)):
-        print(i)
         if i == 0:
             phi = primeFactorsEvaluatedList[i]
         else:
