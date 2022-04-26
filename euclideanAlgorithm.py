@@ -12,22 +12,28 @@ def integerCheck(integer):                          #takes one input, converts i
 
 def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and returns the GCD.
     remainder = None
-    firstNumber = int(firstNumber)
-    secondNumber = int(secondNumber)
+    largerNumber = max(int(firstNumber), int(secondNumber))
+    smallerNumber = min(int(firstNumber), int(secondNumber))
 
-    if firstNumber > secondNumber:
-        smallerNumber = secondNumber
-        largerNumber = firstNumber
-    else:
-        smallerNumber = firstNumber
-        largerNumber = secondNumber
+
+    # remainder = None
+    # firstNumber = int(firstNumber)
+    # secondNumber = int(secondNumber)
+
+    # if firstNumber > secondNumber:
+    #     smallerNumber = secondNumber
+    #     largerNumber = firstNumber
+    # else:
+    #     smallerNumber = firstNumber
+    #     largerNumber = secondNumber
 
     while remainder != 0:
         remainder = largerNumber % smallerNumber
         largerNumber = smallerNumber
         smallerNumber = remainder
-
-    return largerNumber
+    gcd = largerNumber
+    
+    return gcd
 
 print("This program takes two numbers and returns their GCD.")
 
