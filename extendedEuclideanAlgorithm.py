@@ -11,24 +11,22 @@ def canThisBeAnInteger(integer):                          #takes one input, conv
         return True
 
 
-def euclideanAlgorithm(firstNumber, secondNumber):   #takes two inputs and returns the GCD.
+def euclideanAlgorithm(remainderIterationsList):   #takes two inputs and returns the GCD.
     remainder = None
-    largerNumber = max(int(firstNumber), int(secondNumber))
-    smallerNumber = min(int(firstNumber), int(secondNumber))
+    largerNumber = remainderIterationsList[0]
+    smallerNumber = remainderIterationsList[1]
 
     while remainder != 0:
         remainder = largerNumber % smallerNumber
+        remainderIterationsList.append(remainder)
         largerNumber = smallerNumber
         smallerNumber = remainder
-    gcd = largerNumber
-
-    return gcd
+    
+    return remainderIterationsList[0:-1]            #slicing removes the zero remainder. I am still looking for the least messy way to write a condition that both initializes the loop condition and terminates the loop without adding 0 to the remainder interations list
 
 
 def euclideanAlgortihmSolvedForRi(remainderLarger, remainderSmaller, quotient):
-    remainderIteration = remainderLarger - (remainderSmaller * quotient)
-    return euclideanAlgortihmSolvedForRi(remainderIteration, remainderSmaller, )
-    # return remainderIteration
+    pass
 
 
 def euclideanAlgorithmWithSubstitution():
@@ -55,18 +53,24 @@ while True:
         else:
             break
 
-    print(euclideanAlgorithm(firstNumber,secondNumber))
-    i = 2
-    remainderIteration = None
-    remainderIterationsList = [(max(int(firstNumber), int(secondNumber)), (min(int(firstNumber), int(secondNumber))]
-    quotientList = [remainderIterationsList[0] // remainderIterationsList[1]]
-    remainderIteration = euclideanAlgortihmSolvedForRi(remainderIterationList[i], remainderIterationList[i], quotient[i] )
-    while remainderIterationsList[-1] != 1:
-        break
-
-  #04/25 - left off figuring out where to set the iteration count since r0 and r1 are given.
-  #I also need to figure out how to determine the relationship between the i count, the quotent and the remainder
-  #I am conisdering whether or not ill be able to solve this problem recursively
+   
+    remainderIterationsList = [None, None,]
+    remainderIterationsList[0] = max(int(firstNumber), int(secondNumber))
+    remainderIterationsList[1] = min(int(firstNumber), int(secondNumber))
+    
+    print(euclideanAlgorithm(remainderIterationsList))
+    
+    remainderIterationsList = euclideanAlgorithm(remainderIterationsList)
+    quotientList = []
+    
+    for x in range(0, len(remainderIterationsList)-1):
+        print(x, " is x", remainderIterationsList[x], " is x index", remainderIterationsList[x + 1], " is x +1")
+        quotientList.append(remainderIterationsList[x] // remainderIterationsList[x + 1])
+        print(quotientList)
+        x += 1
+    #5/4 - I left off trying to figfure out how to terminate the loop which creates the list of quotients values without getting a zero division error. Probably should have just started with making this a function.
+    
+    print(quotientList)
     
     break
 
