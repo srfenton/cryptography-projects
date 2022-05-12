@@ -11,10 +11,13 @@ def canThisBeAnInteger(integer):                          #takes one input, conv
         return True
 
 
-def euclideanAlgorithm(remainderIterationsList):   #takes two inputs and returns the GCD.
+def euclideanAlgorithm(firstNumber, secondNumber):   #takes two integer inputs and returns a list of the remainders with the GCD as the final element.
     remainder = None
-    largerNumber = remainderIterationsList[0]
-    smallerNumber = remainderIterationsList[1]
+    remainderIterationsList = []
+    largerNumber = max(int(firstNumber), int(secondNumber))
+    smallerNumber = min(int(firstNumber), int(secondNumber))
+    remainderIterationsList.append(largerNumber)
+    remainderIterationsList.append(smallerNumber)
 
     while remainder != 0:
         remainder = largerNumber % smallerNumber
@@ -22,7 +25,22 @@ def euclideanAlgorithm(remainderIterationsList):   #takes two inputs and returns
         largerNumber = smallerNumber
         smallerNumber = remainder
     
-    return remainderIterationsList[0:-1]            #slicing removes the zero remainder. I am still looking for the least messy way to write a condition that both initializes the loop condition and terminates the loop without adding 0 to the remainder interations list
+    return remainderIterationsList[0:-1]            #the slicing removes the zero remainder since the 0 remainder doesn't suit our purposes and we may need to pop the list to completion when we get to the end of it. I am still looking for the least messy way to write a condition that both initializes the loop condition and terminates the loop without adding 0 to the remainder interations list
+
+
+def generateQuotientList(remainderIterationsList):
+    quotientList = []
+    for x in range(0, len(remainderIterationsList)-1):
+        try:
+            quotientList.append(remainderIterationsList[x] // remainderIterationsList[x+1])
+
+        except ZeroDivisionError:
+            print("ZeroDivisionError detected")
+            return quotientList
+
+        x += 1
+
+    return quotientList
 
 
 def euclideanAlgortihmSolvedForRi(remainderLarger, remainderSmaller, quotient):
@@ -53,24 +71,12 @@ while True:
         else:
             break
 
-   
-    remainderIterationsList = [None, None,]
-    remainderIterationsList[0] = max(int(firstNumber), int(secondNumber))
-    remainderIterationsList[1] = min(int(firstNumber), int(secondNumber))
+    remainderIterationsList = euclideanAlgorithm(firstNumber, secondNumber)
+    quotientList = generateQuotientList(remainderIterationsList)
+    print(remainderIterationsList, " is remainderIterationsList")
+    print(quotientList, " is quotientList")
+
     
-    print(euclideanAlgorithm(remainderIterationsList))
-    
-    remainderIterationsList = euclideanAlgorithm(remainderIterationsList)
-    quotientList = []
-    
-    for x in range(0, len(remainderIterationsList)-1):
-        print(x, " is x", remainderIterationsList[x], " is x index", remainderIterationsList[x + 1], " is x +1")
-        quotientList.append(remainderIterationsList[x] // remainderIterationsList[x + 1])
-        print(quotientList)
-        x += 1
-    #5/4 - I left off trying to figfure out how to terminate the loop which creates the list of quotients values without getting a zero division error. Probably should have just started with making this a function.
-    
-    print(quotientList)
     
     break
 
