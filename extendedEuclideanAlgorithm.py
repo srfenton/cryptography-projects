@@ -1,6 +1,29 @@
 from cgitb import small
 import sys
 
+class EuclideanAlgorithmSolvedForRi:
+    def __init__(self, remainderIteration, remainderPrevious, quotientIteration, remainderCurrent):
+        remainderIteration = self.remainderIteration
+        remainderPrevious = self.remainderPrevious
+        quotientIteration = self.quotientIteration 
+
+    def solveEuclideanAlgorithmSolvedForR(self):
+        return self.remainderPrevious - (self.quotientIteration * self.remainderCurrent)
+
+
+class EuclideanAlrgorithmWithSubstitution:
+    def __init__(self, EuclideanAlgorithmSolvedForRi):
+        pass
+
+    #05.16: I am leaving off here in defining classes which will make it easier to solve the EEA problem.
+    #next I need to define the withsub objects / methods and see and then try to remember how to actually do the substitution part
+    #Ideally, I would like to be able to plugin the iteration value to any of these objects or methods and be able to reason about different coefficients in the current iteration as a whole. 
+    #Meaning, using OOP should make the subtitution part easy
+    #I did not use OOP to generate my remainder and quotient lists 
+    #because they do not need to be re-created at any point. 
+    #The numbers we start with determine those lists and they do not need to change
+
+
 def canThisBeAnInteger(integer):                          #takes one input, converts it to an integer and makes sure it's not empty
     try:
         integer = (int(integer))
@@ -30,10 +53,12 @@ def euclideanAlgorithm(firstNumber, secondNumber):   #takes two integer inputs a
 
 def generateQuotientList(remainderIterationsList):
     quotientList = []
-    for x in range(0, len(remainderIterationsList)-1):
+    for x in range(0, len(remainderIterationsList)-2):  #the iteration count is one less than usual to leave off the quotient between the 2nd to last remainder and the 1 value.
         try:
             quotientList.append(remainderIterationsList[x] // remainderIterationsList[x+1])
-
+            print(remainderIterationsList[x], "is the remainder at index position, ", x)
+            print(remainderIterationsList[x+1], "is the remainder at index position, ", x+1)
+            print(remainderIterationsList[x] // remainderIterationsList[x+1], " is what is getting appended to the quotient list as a result of the above values")
         except ZeroDivisionError:
             print("ZeroDivisionError detected")
             return quotientList
@@ -41,14 +66,6 @@ def generateQuotientList(remainderIterationsList):
         x += 1
 
     return quotientList
-
-
-def euclideanAlgortihmSolvedForRi(remainderLarger, remainderSmaller, quotient):
-    pass
-
-
-def euclideanAlgorithmWithSubstitution():
-    pass
 
 
 while True:
