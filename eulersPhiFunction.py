@@ -42,7 +42,7 @@ def countExponents(primeFactorsList):                     #counts exponents by t
             primeFactorsDict[x] = 1
     return primeFactorsDict
 
-class factorTree:                                          #factorTree class is used to create branch objects that identify prime factors on the right and reducable factors on the left
+class FactorTree:                                          #factorTree class is used to create branch objects that identify prime factors on the right and reducable factors on the left
 
     def __init__(self, left, right):
         self.left = left
@@ -57,7 +57,7 @@ while True:
     while True:
         if nextFactor(n) is None:
             break
-        branch = factorTree(nextFactor(n) , int(n / nextFactor(n)))
+        branch = FactorTree(nextFactor(n) , int(n / nextFactor(n)))
 
         if isThisPrime(branch.left) == True:
             primeFactorsList.append(int(branch.left))

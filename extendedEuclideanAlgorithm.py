@@ -3,11 +3,12 @@ import sys
 
 class EuclideanAlgorithmSolvedForRi:
     def __init__(self, remainderIteration, remainderPrevious, quotientIteration, remainderCurrent):
-        remainderIteration = self.remainderIteration
-        remainderPrevious = self.remainderPrevious
-        quotientIteration = self.quotientIteration 
+        self.remainderIteration = remainderIteration
+        self.remainderPrevious = remainderPrevious 
+        self.quotientIteration = quotientIteration
+        self.remainderCurrent = remainderCurrent
 
-    def solveEuclideanAlgorithmSolvedForR(self):
+    def solveEuclideanAlgorithmSolvedForRi(self):
         return self.remainderPrevious - (self.quotientIteration * self.remainderCurrent)
 
 
@@ -15,13 +16,16 @@ class EuclideanAlrgorithmWithSubstitution:
     def __init__(self, EuclideanAlgorithmSolvedForRi):
         pass
 
-    #05.16: I am leaving off here in defining classes which will make it easier to solve the EEA problem.
-    #next I need to define the withsub objects / methods and see and then try to remember how to actually do the substitution part
-    #Ideally, I would like to be able to plugin the iteration value to any of these objects or methods and be able to reason about different coefficients in the current iteration as a whole. 
-    #Meaning, using OOP should make the subtitution part easy
-    #I did not use OOP to generate my remainder and quotient lists 
-    #because they do not need to be re-created at any point. 
-    #The numbers we start with determine those lists and they do not need to change
+    #05.26: I started a for loop to iterate through the list of equations and remainders
+    #I also created a list to keep track of the objects so it can be passed from solvedForRi to withSubs
+    #with sub should make it so I can finally get my S and T values.
+    #5.28: I got the solvedForRi objects working just fine. Gotta see if I can make a list of object values.
+    #curious to see how that works. There may be a tad of confusion on the for loop as it starts on 4.
+    #this is because r0 and r1 are given and EA is used to calculate r3.
+    #essentially, r4 would be the first remainder in which we would use EA (solved for ri)
+    #I have just had a look at EA (with subsitution). I still don't remember AT ALL how that is done.
+    #may have my almost a math major but defintely a math minor brother look at it with me.
+    
 
 
 def canThisBeAnInteger(integer):                          #takes one input, converts it to an integer and makes sure it's not empty
@@ -92,6 +96,12 @@ while True:
     quotientList = generateQuotientList(remainderIterationsList)
     print(remainderIterationsList, " is remainderIterationsList")
     print(quotientList, " is quotientList")
+
+    solvedForRiList = []
+    for x in range(4,len(remainderIterationsList)):
+        currentEuclideanAlgorithmSolvedForRi = EuclideanAlgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2],quotientList[x-2], remainderIterationsList[x-1])
+        solvedForRiList.append(currentEuclideanAlgorithmSolvedForRi)
+    print(solvedForRiList)
 
     
     
