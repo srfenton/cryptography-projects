@@ -99,8 +99,8 @@ while True:
 
     solvedForRiList = []
     for x in range(4,len(remainderIterationsList)):
-        currentEuclideanAlgorithmSolvedForRi = EuclideanAlgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2],quotientList[x-2], remainderIterationsList[x-1])
-        solvedForRiList.append(currentEuclideanAlgorithmSolvedForRi)
+        currentIterationOfEuclideanAlgorithmSolvedForRi = EuclideanAlgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2],quotientList[x-2], remainderIterationsList[x-1])
+        solvedForRiList.append(currentIterationOfEuclideanAlgorithmSolvedForRi)
     print(solvedForRiList)
 
     
