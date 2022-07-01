@@ -10,21 +10,16 @@ class EuclideanAlgorithmSolvedForRi:
 
     def solveEuclideanAlgorithmSolvedForRi(self):
         return self.remainderPrevious - (self.quotientIteration * self.remainderCurrent)
+    def printEuclideanAlgorithmSolvedForRi(self):
+        pass
+        #write print statements for all properties
 
 
 class EuclideanAlrgorithmWithSubstitution:
     def __init__(self, EuclideanAlgorithmSolvedForRi):
         pass
 
-    #05.26: I started a for loop to iterate through the list of equations and remainders
-    #I also created a list to keep track of the objects so it can be passed from solvedForRi to withSubs
-    #with sub should make it so I can finally get my S and T values.
-    #5.28: I got the solvedForRi objects working just fine. Gotta see if I can make a list of object values.
-    #curious to see how that works. There may be a tad of confusion on the for loop as it starts on 4.
-    #this is because r0 and r1 are given and EA is used to calculate r3.
-    #essentially, r4 would be the first remainder in which we would use EA (solved for ri)
-    #I have just had a look at EA (with subsitution). I still don't remember AT ALL how that is done.
-    #may have my almost a math major but defintely a math minor brother look at it with me.
+  
     
 
 
@@ -101,7 +96,7 @@ while True:
     for x in range(4,len(remainderIterationsList)):
         currentIterationOfEuclideanAlgorithmSolvedForRi = EuclideanAlgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2],quotientList[x-2], remainderIterationsList[x-1])
         solvedForRiList.append(currentIterationOfEuclideanAlgorithmSolvedForRi)
-    print(solvedForRiList)
+   
 
     
     
