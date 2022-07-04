@@ -92,8 +92,8 @@ while True:
         def interationsOfSolvedForRiList(self):
             pass
     for x in range(3, len(remainderIterationsList)-1):
-        currentIteration = EuclideanAlrgorithmWithSubstitution(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x], remainderIterationsList[x-1])
-        print(currentIteration.printEuclideanAlrgorithmWithSubstitution())
+        currentIteration = EuclideanAlrgorithmWithSubstitution(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x-2], remainderIterationsList[x-1])
+        currentIteration.printEuclideanAlrgorithmWithSubstitution()
         print(currentIteration.solveEquation())
 
     class ExtendedEuclideanAlgorithmEquation:
