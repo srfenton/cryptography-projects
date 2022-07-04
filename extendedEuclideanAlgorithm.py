@@ -39,10 +39,7 @@ while True:
             largerNumber = smallerNumber
             smallerNumber = remainder
         
-        return remainderIterationsList          #the slicing removes the zero remainder since the 0 remainder doesn't suit our purposes and we may need to pop the list to completion when we get to the end of it. 
-                                                #I am still looking for the least messy way to write a condition that both initializes the loop condition and terminates the loop without adding 0 to the remainder interations list
-                                                #I removed the slicing [0:-1] because it returns an empty list for 8 and 8. 
-                                                #better to have it working than contain extra information.
+        return remainderIterationsList          
 
     remainderIterationsList = euclideanAlgorithm(firstNumber, secondNumber)
 
@@ -51,9 +48,9 @@ while True:
         for x in range(0, len(remainderIterationsList)-2):  #the iteration count is one less than usual to leave off the quotient between the 2nd to last remainder and the 1 value.
             try:
                 quotientList.append(remainderIterationsList[x] // remainderIterationsList[x+1])
-                print(remainderIterationsList[x], "is the remainder at index position, ", x)
-                print(remainderIterationsList[x+1], "is the remainder at index position, ", x+1)
-                print(remainderIterationsList[x] // remainderIterationsList[x+1], " is what is getting appended to the quotient list as a result of the above values")
+                # print(remainderIterationsList[x], "is the remainder at index position, ", x)
+                # print(remainderIterationsList[x+1], "is the remainder at index position, ", x+1)
+                # print(remainderIterationsList[x] // remainderIterationsList[x+1], " is what is getting appended to the quotient list as a result of the above values")
             except ZeroDivisionError:
                 print("ZeroDivisionError detected")
                 return quotientList
@@ -66,26 +63,42 @@ while True:
     print(quotientList, " is quotientList")
 
     class EuclideanAlrgorithmWithSubstitution: 
-        def __init__(self, remainderIteration, remainderPrevious, quotientIteration, remainderCurrent):
+        def __init__(self, remainderIteration, remainderMinusTwo, quotientIteration, remainderMinusOne):
             self.remainderIteration = remainderIteration
-            self.remainderPrevious = remainderPrevious 
+            self.remainderMinusTwo = remainderMinusTwo 
             self.quotientIteration = quotientIteration
-            self.remainderCurrent = remainderCurrent
+            self.remainderMinusOne = remainderMinusOne
+        
+        equationlist = []
 
-        def EuclideanAlrgorithmWithSubstitution(self):
-            return self.remainderPrevious - (self.quotientIteration * self.remainderCurrent)
+        def pushIterationToEquationList(self, equationList):
+            currentIterationList = []
+            currentIterationList.extend(self.remainderIteration, self.remainderMinusTwo, self.quotientIteration, self.remainderMinusOne)
+            equationList.append(currentIterationList)
+            print(currentIterationList, " is currentIterationList")
+            print(equationList, "is equation List")
+
 
         def printEuclideanAlrgorithmWithSubstitution(self):
-            pass
             #try to think of a way to concatinate these object properties to print the exact equation
-            print(self.remainderIteration, " is remainderIteration /n ") 
-            print(self.remainderPrevious, " is remainderPrevious/n ")
-            print(self.quotientIteration, " is quotientIteration/n ")
-            print(self. remainderCurrent, " is reaminderCurrent/n ")
+            print(self.remainderIteration, " is remainderIteration") 
+            print(self.remainderMinusTwo, " is remainderMinusTwo")
+            print(self.quotientIteration, " is quotientIteration")
+            print(self.remainderMinusOne, " is remainderMinusOne")
         
+        def solveEquation(self):
+            return self.remainderIteration == self.remainderMinusTwo - (self.quotientIteration * self.remainderMinusOne)
+
         def interationsOfSolvedForRiList(self):
             pass
-  
+    for x in range(3, len(remainderIterationsList)-1):
+        currentIteration = EuclideanAlrgorithmWithSubstitution(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x], remainderIterationsList[x-1])
+        print(currentIteration.printEuclideanAlrgorithmWithSubstitution())
+        print(currentIteration.solveEquation())
+
+    class ExtendedEuclideanAlgorithmEquation:
+        def __init__(self, s, t):
+            pass
     break
 
     # while True:
