@@ -85,13 +85,14 @@ while True:
             print(self.remainderMinusTwo, " is remainderMinusTwo")
             print(self.quotientIteration, " is quotientIteration")
             print(self.remainderMinusOne, " is remainderMinusOne")
+            print(self.remainderIteration, " = ", self.remainderMinusTwo, " + (", self.quotientIteration," * ", self.remainderMinusOne,")")
         
         def solveEquation(self):
             return self.remainderIteration == self.remainderMinusTwo - (self.quotientIteration * self.remainderMinusOne)
 
         def interationsOfSolvedForRiList(self):
             pass
-    for x in range(3, len(remainderIterationsList)-1):
+    for x in range(2, len(remainderIterationsList)-1):
         currentIteration = EuclideanAlrgorithmWithSubstitution(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x-2], remainderIterationsList[x-1])
         currentIteration.printEuclideanAlrgorithmWithSubstitution()
         print(currentIteration.solveEquation())
