@@ -1,6 +1,5 @@
 from cgitb import small
 import sys
-
 while True:
     while True:
         try:

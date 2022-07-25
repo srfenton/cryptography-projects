@@ -61,11 +61,11 @@ while True:
 
         if isThisPrime(branch.left) == True:
             primeFactorsList.append(int(branch.left))
-            print("prime factor added from left ", branch.left)
+            #print("prime factor added from left ", branch.left)
 
         if isThisPrime(int(branch.right)) == True:
             primeFactorsList.append(int(branch.right))
-            print("prime factor added from right ", branch.right)
+            #print("prime factor added from right ", branch.right)
 
         n = nextFactor(n)
 
