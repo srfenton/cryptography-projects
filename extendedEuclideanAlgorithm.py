@@ -68,6 +68,7 @@ while True:
             self.quotientIteration = quotientIteration
             self.remainderMinusOne = remainderMinusOne
         
+
         def pushIterationToEquationDict(self, equationDict, iterationCount):
             equationDict.update({"r"+str(iterationCount) : self.getEuclideanAlrgorithmSolvedForRiString()})
             print(equationDict, "is equation Dict")
@@ -77,12 +78,15 @@ while True:
         def printEuclideanAlrgorithmSolvedForRi(self):
             print(self.remainderIteration, " = ", self.remainderMinusTwo, " - (", self.quotientIteration," * ", self.remainderMinusOne,")")
         
+
         def getEuclideanAlrgorithmSolvedForRiString(self):
             return str(self.remainderIteration) + " = " + str(self.remainderMinusTwo) + " - ("+ str(self.quotientIteration) + " * " + str(self.remainderMinusOne) + ")"
         
 
-        def solveEquation(self):
+        def solveEquation(self): #test that returns True if the equation can be constructed and solved using the object attributes
             return self.remainderIteration == self.remainderMinusTwo - (self.quotientIteration * self.remainderMinusOne)
+    
+    
     equationDict = {}
     for iterationCount in range(2, len(remainderIterationsList)-1):
         currentIteration = EuclideanAlrgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x-2], remainderIterationsList[x-1])
