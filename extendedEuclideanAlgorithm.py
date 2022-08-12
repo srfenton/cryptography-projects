@@ -61,40 +61,38 @@ while True:
     print(remainderIterationsList, " is remainderIterationsList")
     print(quotientList, " is quotientList")
 
-    class EuclideanAlrgorithmWithSubstitution: 
+    class EuclideanAlrgorithmSolvedForRi: 
         def __init__(self, remainderIteration, remainderMinusTwo, quotientIteration, remainderMinusOne):
             self.remainderIteration = remainderIteration
             self.remainderMinusTwo = remainderMinusTwo 
             self.quotientIteration = quotientIteration
             self.remainderMinusOne = remainderMinusOne
         
-        equationlist = []
 
-        def pushIterationToEquationList(self, equationList):
-            currentIterationList = []
-            currentIterationList.extend(self.remainderIteration, self.remainderMinusTwo, self.quotientIteration, self.remainderMinusOne)
-            equationList.append(currentIterationList)
-            print(currentIterationList, " is currentIterationList")
-            print(equationList, "is equation List")
+        def pushIterationToEquationDict(self, equationDict, iterationCount):
+            equationDict.update({"r"+str(iterationCount) : self.getEuclideanAlrgorithmSolvedForRiString()})
+            print(equationDict, "is equation Dict")
+            return equationDict
 
 
-        def printEuclideanAlrgorithmWithSubstitution(self):
-            #try to think of a way to concatinate these object properties to print the exact equation
-            print(self.remainderIteration, " is remainderIteration") 
-            print(self.remainderMinusTwo, " is remainderMinusTwo")
-            print(self.quotientIteration, " is quotientIteration")
-            print(self.remainderMinusOne, " is remainderMinusOne")
-            print(self.remainderIteration, " = ", self.remainderMinusTwo, " + (", self.quotientIteration," * ", self.remainderMinusOne,")")
+        def printEuclideanAlrgorithmSolvedForRi(self):
+            print(self.remainderIteration, " = ", self.remainderMinusTwo, " - (", self.quotientIteration," * ", self.remainderMinusOne,")")
         
-        def solveEquation(self):
-            return self.remainderIteration == self.remainderMinusTwo - (self.quotientIteration * self.remainderMinusOne)
 
-        def interationsOfSolvedForRiList(self):
-            pass
-    for x in range(2, len(remainderIterationsList)-1):
-        currentIteration = EuclideanAlrgorithmWithSubstitution(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x-2], remainderIterationsList[x-1])
-        currentIteration.printEuclideanAlrgorithmWithSubstitution()
-        print(currentIteration.solveEquation())
+        def getEuclideanAlrgorithmSolvedForRiString(self):
+            return str(self.remainderIteration) + " = " + str(self.remainderMinusTwo) + " - ("+ str(self.quotientIteration) + " * " + str(self.remainderMinusOne) + ")"
+        
+
+        def solveEquation(self): #test that returns True if the equation can be constructed and solved using the object attributes
+            return self.remainderIteration == self.remainderMinusTwo - (self.quotientIteration * self.remainderMinusOne)
+    
+    
+    equationDict = {}
+    for iterationCount in range(2, len(remainderIterationsList)-1):
+        currentIteration = EuclideanAlrgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x-2], remainderIterationsList[x-1])
+        currentIteration.printEuclideanAlrgorithmSolvedForRi()
+        currentIteration.pushIterationToEquationDict(equationDict, iterationCount)
+        
 
     class ExtendedEuclideanAlgorithmEquation:
         def __init__(self, s, t):
