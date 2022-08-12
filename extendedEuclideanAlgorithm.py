@@ -44,7 +44,7 @@ while True:
 
     def generateQuotientList(remainderIterationsList):
         quotientList = []
-        for x in range(0, len(remainderIterationsList)-2):  #the iteration count is one less than usual to leave off the quotient between the 2nd to last remainder and the 1 value.
+        for x in range(0, len(remainderIterationsList)-2):  #the iteration count excludes the final quotient.  
             try:
                 quotientList.append(remainderIterationsList[x] // remainderIterationsList[x+1])
                 # print(remainderIterationsList[x], "is the remainder at index position, ", x)
