@@ -91,8 +91,8 @@ while True:
     for x in range(2, len(remainderIterationsList)-1):
         currentIteration = EuclideanAlrgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x-2], remainderIterationsList[x-1])
         currentIteration.printEuclideanAlrgorithmSolvedForRi()
-        currentIteration.pushIterationToEquationDict(equationDict, iterationCount)
-        
+        currentIteration.pushIterationToEquationDict(equationDict, x)
+#it would be a good idea to replace all of the x variables in the above for loop with the name iterationCount so that when  properties are added to the objects, it is more readble.        
 
     class ExtendedEuclideanAlgorithmEquation:
         def __init__(self, s, t):
