@@ -88,7 +88,7 @@ while True:
     
     
     equationDict = {}
-    for iterationCount in range(2, len(remainderIterationsList)-1):
+    for x in range(2, len(remainderIterationsList)-1):
         currentIteration = EuclideanAlrgorithmSolvedForRi(remainderIterationsList[x], remainderIterationsList[x-2], quotientList[x-2], remainderIterationsList[x-1])
         currentIteration.printEuclideanAlrgorithmSolvedForRi()
         currentIteration.pushIterationToEquationDict(equationDict, iterationCount)
